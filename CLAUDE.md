@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Castle Fight EU v2.0.40 ComFix 5.1** — a Warcraft 3 PvP Castle Defense map. Two teams of up to 3 players (Western Force: players 1-3, Eastern Force: players 7-9) build defenses and train units to destroy the opposing castle.
+**Castle Fight EU v2.0.40 Lexa 1.1** — a Warcraft 3 PvP Castle Defense map. Two teams of up to 3 players (Western Force: players 1-3, Eastern Force: players 7-9) build defenses and train units to destroy the opposing castle.
 
-All editable source lives in `CF_CUSTOM/` (not tracked by git by default — it is the working map directory). The compiled binary output is `CF_CUSTOM/CF_CUSTOM.w3x` (MPQ archive).
+All editable source lives in `CF_CUSTOM/` (tracked in git). The compiled binary output is `CF_CUSTOM/CF_CUSTOM.w3x` (MPQ archive).
 
 ## Toolchain: w3x2lni (LNI Format)
 
@@ -73,9 +73,31 @@ Ubertip = "..."         # Tooltip supports |cffRRGGBB color codes
 
 `table/w3i.ini` controls map-level settings: player slots, force alliances, camera bounds, loading screen text, and map flags. Edit this file to change map name, version string, or player configuration.
 
+## Ability System Patterns
+
+Building abilities in `1-init.j` are registered with `aI('rawcode', function handler)`. To find the logic for a building, search for its rawcode:
+
+```
+aI('h01F', function yD)   -- Volcano → yD handles the eruption
+```
+
+The handler function typically creates a dummy unit (`e008`) and adds a damage ability to it. The actual damage values live in `ability.ini`, not in the Jass.
+
+**Flame Strike (`AHfs`) damage fields** — used by most AoE damage abilities:
+
+| Field | Meaning |
+|---|---|
+| `DataA` | Damage per tick |
+| `DataB` | Tick interval (seconds) |
+| `DataE` | Building damage fraction (e.g. `0.4` = 40%) |
+| `DataF` | Max damage per tick across all units — divide by `DataA` to get max unit cap |
+
+Example: `DataA=15, DataB=0.25, DataF=60` → 60 dps, max 4 units (60/15).
+
 ## Workflow Notes
 
 - Edit `.j` files for logic changes, `.ini` files for balance/data changes, `.blp`/`.mdx` for visual assets.
+- Update `table/w3i.ini` loading screen `text` block for changelog entries visible in-game.
 - After edits, repack with w3x2lni to produce a testable `.w3x`.
 - Test by opening the `.w3x` in Warcraft 3 (1.26–1.31 recommended for LNI-format maps).
 - The `map/war3map.j` file is the compiled output of all trigger files — do not edit it directly.
