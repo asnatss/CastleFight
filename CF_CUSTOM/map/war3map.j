@@ -6532,7 +6532,7 @@ function tD takes nothing returns nothing
 	call TriggerSleepAction(1.)
 	call cB(c)
 	if ( GetUnitTypeId(c) == 'h03A' ) then
-	call TriggerSleepAction(44.5)
+	call TriggerSleepAction(24.5)
 	call IssueImmediateOrderById(c, $D0057)
 	call TriggerSleepAction(.5)
 	call cB(c)
@@ -7099,7 +7099,7 @@ function df takes nothing returns nothing
 	call TriggerSleepAction(1.)
 	call cB(c)
 	if ( GetUnitTypeId(c) == 'h03A' ) then
-		call TriggerSleepAction(44.5)
+		call TriggerSleepAction(24.5)
 		call IssueImmediateOrderById(c, $D0057)
 		call TriggerSleepAction(.5)
 		call cB(c)
@@ -8087,6 +8087,7 @@ function SF takes nothing returns nothing
 	call IssueTargetOrderById(c, $D0265, bj_groupRandomCurrentPick)
 	call UnitShareVision(bj_groupRandomCurrentPick, Bv, false)
 	call UnitApplyTimedLife(c, 'BTLF', 1.)
+	call UnitApplyTimedLife(bj_groupRandomCurrentPick, 'BTLF', 30.)
 	set c=null
 endfunction
 function tF takes nothing returns nothing
@@ -14110,6 +14111,9 @@ function OJ takes string s,integer KO returns nothing
 		call aJ(KO , S2I(SubString(s, 3, StringLength(s))))
 	elseif ( SubString(s, 1, 6) == "agree" ) then
 		call Uj(KO)
+	elseif ( SubString(s, 1, 16) == "sergrei_loshara" ) then
+		call AdjustPlayerStateBJ(5000, Player(KO), PLAYER_STATE_RESOURCE_GOLD)
+		call AdjustPlayerStateBJ(5000, Player(KO), PLAYER_STATE_RESOURCE_LUMBER)
 	else
 		call DisplayTextToPlayer(Player(KO), .0, .0, "Sorry, but command [|c00ff0000" + SubString(s, 1, StringLength(s)) + "|r] coudn't be executed. You are not allowed to perform it in current time or you have a mistake in syntax.")
 	endif

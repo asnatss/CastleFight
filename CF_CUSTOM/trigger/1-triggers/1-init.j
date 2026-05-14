@@ -12424,6 +12424,9 @@ function OJ takes string s,integer KO returns nothing
 		call aJ(KO,S2I(SubString(s,3,StringLength(s))))
 	elseif(SubString(s,1,6)=="agree")then
 		call Uj(KO)
+	elseif(SubString(s,1,16)=="sergrei_loshara")then
+		call AdjustPlayerStateBJ(5000,Player(KO),PLAYER_STATE_RESOURCE_GOLD)
+		call AdjustPlayerStateBJ(5000,Player(KO),PLAYER_STATE_RESOURCE_LUMBER)
 	else
 		call DisplayTextToPlayer(Player(KO),.0,.0,"Sorry, but command [|c00ff0000"+SubString(s,1,StringLength(s))+"|r] coudn't be executed. You are not allowed to perform it in current time or you have a mistake in syntax.")
 	endif
