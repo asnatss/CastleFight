@@ -8551,7 +8551,7 @@ set c=null
 endfunction
 function Jg takes nothing returns boolean
 local unit u=GetFilterUnit()
-local boolean iN=GetWidgetLife(u)>.405 and IsUnitEnemy(u,Bv)and IsUnitType(u,UNIT_TYPE_SAPPER)and IsUnitType(u,UNIT_TYPE_GROUND)and GetUnitAbilityLevel(u,'Avul')<=0 and GetUnitAbilityLevel(u,'A08H')<=0
+local boolean iN=GetWidgetLife(u)>.405 and IsUnitEnemy(u,Bv)and IsUnitType(u,UNIT_TYPE_SAPPER)and IsUnitType(u,UNIT_TYPE_GROUND)and not IsUnitType(u,UNIT_TYPE_HERO)and GetUnitAbilityLevel(u,'Avul')<=0 and GetUnitAbilityLevel(u,'A08H')<=0
 if(iN and GetUnitAbilityLevel(u,'BEer')<=0 and GetUnitAbilityLevel(u,'B00M')<=0)then
 call GroupAddUnit(ka,u)
 set u=null
@@ -8571,7 +8571,7 @@ set x=GetUnitX(Kv)
 set y=GetUnitY(Kv)
 set bj_forLoopAIndex=3
 call GroupClear(ka)
-call GroupEnumUnitsInRange(Nv,x,y,300.,ma)
+call GroupEnumUnitsInRange(Nv,x,y,150.,ma)
 loop
 set t=FirstOfGroup(ka)
 exitwhen bj_forLoopAIndex<=0 or t==null
