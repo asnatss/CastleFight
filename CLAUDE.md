@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Castle Fight EU v2.0.40 Lexa 1.2** — a Warcraft 3 PvP Castle Defense map. Two teams of up to 3 players (Western Force: players 1-3, Eastern Force: players 7-9) build defenses and train units to destroy the opposing castle.
+**Castle Fight EU v2.0.40 Lexa 1.3** — a Warcraft 3 PvP Castle Defense map. Two teams of up to 3 players (Western Force: players 1-3, Eastern Force: players 7-9) build defenses and train units to destroy the opposing castle.
 
 All editable source lives in `CF_CUSTOM/` (tracked in git). The compiled binary output is `CF_CUSTOM/CF_CUSTOM.w3x` (MPQ archive).
 

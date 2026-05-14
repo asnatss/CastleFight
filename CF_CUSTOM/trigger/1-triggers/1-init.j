@@ -6939,7 +6939,7 @@ function df takes nothing returns nothing // Хекс
 	call TriggerSleepAction(1.)
 	call cB(c)
 	if(GetUnitTypeId(c)=='h03A')then
-		call TriggerSleepAction(44.5)
+		call TriggerSleepAction(24.5)
 		call IssueImmediateOrderById(c,$D0057)
 		call TriggerSleepAction(.5)
 		call cB(c)
@@ -7927,6 +7927,7 @@ function SF takes nothing returns nothing // Оракул наги
 	call IssueTargetOrderById(c,$D0265,bj_groupRandomCurrentPick)
 	call UnitShareVision(bj_groupRandomCurrentPick,Bv,false)
 	call UnitApplyTimedLife(c,'BTLF',1.)
+	call UnitApplyTimedLife(bj_groupRandomCurrentPick,'BTLF',30.)
 	set c=null
 endfunction
 function tF takes nothing returns nothing
