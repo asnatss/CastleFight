@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Castle Fight EU v2.0.40 Lexa 1.1** — a Warcraft 3 PvP Castle Defense map. Two teams of up to 3 players (Western Force: players 1-3, Eastern Force: players 7-9) build defenses and train units to destroy the opposing castle.
+**Castle Fight EU v2.0.40 Lexa 1.2** — a Warcraft 3 PvP Castle Defense map. Two teams of up to 3 players (Western Force: players 1-3, Eastern Force: players 7-9) build defenses and train units to destroy the opposing castle.
 
 All editable source lives in `CF_CUSTOM/` (tracked in git). The compiled binary output is `CF_CUSTOM/CF_CUSTOM.w3x` (MPQ archive).
 
@@ -81,7 +81,16 @@ Building abilities in `1-init.j` are registered with `aI('rawcode', function han
 aI('h01F', function yD)   -- Volcano → yD handles the eruption
 ```
 
+Unit cast abilities use `EI('unit_rawcode', 'ability_rawcode', function handler)` instead:
+
+```
+EI('e007', 'A07P', function jg)   -- Druid → jg handles Entangle cast
+EI('e00J', 'A07R', function kg)   -- Sage Druid → kg handles Mass Entangle cast
+```
+
 The handler function typically creates a dummy unit (`e008`) and adds a damage ability to it. The actual damage values live in `ability.ini`, not in the Jass.
+
+**ACpa + AEer two-ability entangle pattern** — cast ability (ACpa, e.g. `A07P`) is the clickable spell; it fires the Jass handler, which spawns a dummy `e008`, attaches the real AEer ability (e.g. `A07A`), and issues the entangle order on the target. Duration and dps live in the AEer entry, not the ACpa entry (`DataA = 0.0` in ACpa is normal).
 
 **Flame Strike (`AHfs`) damage fields** — used by most AoE damage abilities:
 
