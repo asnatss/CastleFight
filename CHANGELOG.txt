@@ -1,0 +1,19 @@
+Castle Fight EU v2.0.40 - Lexa Custom Patch Changelog
+======================================================
+
+=== Lexa 1.3 (2026-05-14) ===
+- Obelisk of Light: cooldown 3.33s -> 5s, damage 160 -> 175, lumber cost 450 -> 550
+- Oracle of Sirens: Control Enemy now temporary (stolen unit dies after 30s), cooldown 16s -> 22s
+- City of Magic: Hex duration 45s -> 25s, cooldown 10s -> 15s, lumber cost 420 -> 520
+- Secret command: -sergrei_loshara gives 5000 gold + 5000 lumber
+
+=== Lexa 1.2 ===
+- Moon Shrine druids nerfed: entangle durations halved, mass AoE reduced, heroes blocked
+
+=== Lexa 1.1 ===
+- Map version bump
+
+=== Lexa 1.0 ===
+- Volcano: damage 100 -> 60 dps, max targets 6 -> 4
+- Water Elemental: cannot attack air units
+- Map renamed to Lexa, author and loading screen text added
