@@ -5,7 +5,6 @@ Castle Fight EU v2.0.40 - Lexa Custom Patch Changelog
 - Obelisk of Light: cooldown 3.33s -> 5s, damage 160 -> 175, lumber cost 450 -> 550
 - Oracle of Sirens: Control Enemy now temporary (stolen unit dies after 30s), cooldown 16s -> 22s
 - City of Magic: Hex duration 45s -> 25s, cooldown 10s -> 15s, lumber cost 420 -> 520
-- Secret command: -sergrei_loshara gives 5000 gold + 5000 lumber
 
 === Lexa 1.2 ===
 - Moon Shrine druids nerfed: entangle durations halved, mass AoE reduced, heroes blocked
