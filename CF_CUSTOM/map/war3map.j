@@ -9788,7 +9788,7 @@ set x=GetUnitX(Kv)
 set y=GetUnitY(Kv)
 set bj_forLoopAIndex=3
 call GroupClear(ka)
-call GroupEnumUnitsInRange(Nv, x, y, 300., ma)
+call GroupEnumUnitsInRange(Nv, x, y, 150., ma)
 loop
 set t=FirstOfGroup(ka)
 exitwhen bj_forLoopAIndex <= 0 or t == null
